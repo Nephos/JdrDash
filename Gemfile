@@ -72,6 +72,11 @@ gem 'will_paginate-bootstrap'
 gem 'will_paginate', github: 'jonatack/will_paginate'
 #gem 'will_paginate'
 
-## Tags for posts
+## Tags
 gem 'acts-as-taggable-on', '~> 4.0'
+
+## API
 gem 'apipie-rails'
+
+# Upload
+gem 'carrierwave', '~> 1.0'
