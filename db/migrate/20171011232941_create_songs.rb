@@ -6,9 +6,9 @@ class CreateSongs < ActiveRecord::Migration[5.1]
       t.string :author
       t.integer :duration
       t.boolean :loop
-      t.integer :attr_stress
-      t.integer :attr_epicness
-      t.integer :attr_happiness
+      t.float :attr_stress
+      t.float :attr_epicness
+      t.float :attr_happiness
 
       t.timestamps
     end

@@ -1,24 +1,15 @@
-# README
+# Jdr Dash (music dashboard)
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## Installation
+Install ruby 2.4, ruby gems, and the gem "bundler"
 
-Things you may want to cover:
+    rake db:create db:migrate
 
-* Ruby version
+## Start
 
-* System dependencies
+    rails s
 
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+## How it works ?
+You start the server.
+Then you can upload files and set attributes to it.
+Then you can use the dashboard to read music randomnly diven your current preferences (stress, type, etc.)
