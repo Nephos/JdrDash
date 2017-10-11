@@ -1,0 +1,37 @@
+p#notice
+  = notice
+p
+  strong
+    | File:
+  = @song.file
+p
+  strong
+    | Source:
+  = @song.source
+p
+  strong
+    | Author:
+  = @song.author
+p
+  strong
+    | Duration:
+  = @song.duration
+p
+  strong
+    | Loop:
+  = @song.loop
+p
+  strong
+    | Attr stress:
+  = @song.attr_stress
+p
+  strong
+    | Attr epicness:
+  = @song.attr_epicness
+p
+  strong
+    | Attr happiness:
+  = @song.attr_happiness
+= link_to 'Edit', edit_song_path(@song)
+|  | 
+= link_to 'Back', songs_path

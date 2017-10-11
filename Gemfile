@@ -59,7 +59,7 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 gem 'devise'
 
 ## Templating
-gem 'slim'
+gem 'slim-rails'
 gem 'redcarpet'
 gem 'rouge'
 
