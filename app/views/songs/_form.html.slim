@@ -1,37 +1,47 @@
-= form_with(model: song, local: true) do |form|
-  - if song.errors.any?
-    #error_explanation
-      h2
-        = pluralize(song.errors.count, "error")
-        |  prohibited this song from being saved:
-      ul
-        - song.errors.full_messages.each do |message|
-          li
-            = message
-  .field
-    = form.label :file
-    = form.file_field :file, id: :song_file
-    / = form.text_field :file, id: :song_file
-  .field
-    = form.label :source
-    = form.text_field :source, id: :song_source
-  .field
-    = form.label :author
-    = form.text_field :author, id: :song_author
-  .field
-    = form.label :duration
-    = form.number_field :duration, id: :song_duration
-  .field
-    = form.label :loop
-    = form.check_box :loop, id: :song_loop
-  .field
-    = form.label :attr_stress
-    = form.number_field :attr_stress, id: :song_attr_stress
-  .field
-    = form.label :attr_epicness
-    = form.number_field :attr_epicness, id: :song_attr_epicness
-  .field
-    = form.label :attr_happiness
-    = form.number_field :attr_happiness, id: :song_attr_happiness
-  .actions
-    = form.submit
+= form_for @song, html: { class: "form form-horizontal song" } do |f|
+  .form-group
+    = f.label :file, :class => 'control-label col-lg-2'
+    .col-lg-10
+      = f.file_field :file
+      /, :class => 'form-control'
+    = f.error_span(:file)
+  .form-group
+    = f.label :source, :class => 'control-label col-lg-2'
+    .col-lg-10
+      = f.text_field :source, :class => 'form-control'
+    = f.error_span(:source)
+  .form-group
+    = f.label :author, :class => 'control-label col-lg-2'
+    .col-lg-10
+      = f.text_field :author, :class => 'form-control'
+    = f.error_span(:author)
+  .form-group
+    = f.label :duration, :class => 'control-label col-lg-2'
+    .col-lg-10
+      = f.text_field :duration, :class => 'form-control'
+    = f.error_span(:duration)
+  .form-group
+    = f.label :loop, :class => 'control-label col-lg-2'
+    .col-lg-10
+      = f.text_field :loop, :class => 'form-control'
+    = f.error_span(:loop)
+  .form-group
+    = f.label :attr_stress, :class => 'control-label col-lg-2'
+    .col-lg-10
+      = f.text_field :attr_stress, :class => 'form-control'
+    = f.error_span(:attr_stress)
+  .form-group
+    = f.label :attr_epicness, :class => 'control-label col-lg-2'
+    .col-lg-10
+      = f.text_field :attr_epicness, :class => 'form-control'
+    = f.error_span(:attr_epicness)
+  .form-group
+    = f.label :attr_happiness, :class => 'control-label col-lg-2'
+    .col-lg-10
+      = f.text_field :attr_happiness, :class => 'form-control'
+    = f.error_span(:attr_happiness)
+  .form-group
+    .col-lg-offset-2.col-lg-10
+      = f.submit nil, :class => 'btn btn-primary'
+      '
+      = link_to t('.cancel', :default => t("helpers.links.cancel")), songs_path, :class => 'btn'

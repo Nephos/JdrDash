@@ -1,6 +1,4 @@
-h1
-  | Editing Song
-= render 'form', song: @song
-= link_to 'Show', @song
-|  | 
-= link_to 'Back', songs_path
+- model_class = Song
+.page-header
+  h1=t '.title', :default => [:'helpers.titles.edit', 'Edit %{model}'], :model => model_class.model_name.human.titleize
+= render :partial => "form"
