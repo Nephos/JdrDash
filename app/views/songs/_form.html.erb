@@ -1,0 +1,57 @@
+<%= form_with(model: song, local: true) do |form| %>
+  <% if song.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(song.errors.count, "error") %> prohibited this song from being saved:</h2>
+
+      <ul>
+      <% song.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :file %>
+    <%= form.text_field :file, id: :song_file %>
+  </div>
+
+  <div class="field">
+    <%= form.label :source %>
+    <%= form.text_field :source, id: :song_source %>
+  </div>
+
+  <div class="field">
+    <%= form.label :author %>
+    <%= form.text_field :author, id: :song_author %>
+  </div>
+
+  <div class="field">
+    <%= form.label :duration %>
+    <%= form.number_field :duration, id: :song_duration %>
+  </div>
+
+  <div class="field">
+    <%= form.label :loop %>
+    <%= form.check_box :loop, id: :song_loop %>
+  </div>
+
+  <div class="field">
+    <%= form.label :attr_stress %>
+    <%= form.number_field :attr_stress, id: :song_attr_stress %>
+  </div>
+
+  <div class="field">
+    <%= form.label :attr_epicness %>
+    <%= form.number_field :attr_epicness, id: :song_attr_epicness %>
+  </div>
+
+  <div class="field">
+    <%= form.label :attr_happiness %>
+    <%= form.number_field :attr_happiness, id: :song_attr_happiness %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>
