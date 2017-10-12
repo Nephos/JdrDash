@@ -5,7 +5,7 @@ class Song < ApplicationRecord
   attr_accessor :youtube_url
 
   before_save do
-    if @youtube_url.to_s.match?(/^https:\/\/(www\.)?youtube\.\w+\/watch\?v=[\w-]+$/)
+    if YOUTUBE_DL && @youtube_url.to_s.match?(/^https:\/\/(www\.)?youtube\.\w+\/watch\?v=[\w-]+$/)
       infos = JSON.parse(`#{YOUTUBE_DL} -x --audio-format vorbis "#{@youtube_url}" -j`)
       id = infos["id"]
       raise "No id found" if id.to_s.empty?
@@ -20,9 +20,5 @@ class Song < ApplicationRecord
     else
       puts "Invalid youtube_url (#{@youtube_url})"
     end
-  end
-
-  after_save do
-    puts "Youtubedl tmp = #{@youtube_dl_path}"
   end
 end
