@@ -15,6 +15,9 @@ You start the server.
 Then you can upload files and set attributes to it.
 Then you can use the dashboard to read music randomly given your current preferences (stress, type, etc.)
 
+### Youtube-dl
+If you want to enable the youtube-dl option (download files directly from youtube), you must have "youtube-dl" installed on your system. An executable "youtube-dl" must exists on the PATH.
+
 ## How to contribute ?
 fork & create a pull request.
 
