@@ -61,6 +61,10 @@ class SongsController < ApplicationController
     end
   end
 
+  def tag_cloud
+    @tags = Post.tag_counts_on(:tags)
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_song
@@ -69,6 +73,6 @@ class SongsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def song_params
-      params.require(:song).permit(:file, :source, :author, :duration, :loop, :attr_stress, :attr_epicness, :attr_happiness)
+      params.require(:song).permit(:file, :source, :author, :duration, :loop, :attr_stress, :attr_epicness, :attr_happiness, :tag_list)
     end
 end

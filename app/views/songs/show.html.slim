@@ -35,6 +35,10 @@ p
   br
   = @song.attr_happiness
 
+- tag_cloud(@song.tags, %w(css1 css2 css3 css4)) do |tag, css_class|
+  = link_to tag.name, { :action => :tag, :id => tag.name }, :class => css_class
+  br
+
 = link_to t('.back', :default => t("helpers.links.back")), songs_path, :class => 'btn btn-default'
 '
 = link_to t('.edit', :default => t("helpers.links.edit")), edit_song_path(@song), :class => 'btn btn-default'
