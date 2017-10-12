@@ -11,7 +11,7 @@ p
   br
   = @song.file
   - if @song.file
-    = audio_tag @song.file, class: "audio-play", autoplay: true, controls: true do
+    = audio_tag @song.file, class: "audio-play", autoplay: false, controls: true do
       = link_to "Download song", @song.file.to_s
 p
   strong= model_class.human_attribute_name(:source) + ':'

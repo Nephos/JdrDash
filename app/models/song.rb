@@ -4,7 +4,7 @@ class Song < ApplicationRecord
 
   attr_accessor :youtube_url
 
-  before_save do
+  after_validation do
     if YOUTUBE_DL && @youtube_url
       if @youtube_url.to_s.match?(/^https:\/\/(www\.)?youtube\.\w+\/watch\?v=[\w-]+$/)
         infos = JSON.parse(`#{YOUTUBE_DL} -x --audio-format vorbis "#{@youtube_url}" -j`)
@@ -22,5 +22,9 @@ class Song < ApplicationRecord
         puts "Invalid youtube_url (#{@youtube_url})"
       end
     end
+  end
+
+  after_save do
+    File.delete @youtube_dl_path if @youtube_dl_path
   end
 end
