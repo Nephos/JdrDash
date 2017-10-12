@@ -3,6 +3,7 @@
 ## Installation
 Install ruby 2.4, ruby gems, and the gem "bundler"
 
+    bundle
     rake db:create db:migrate
 
 ## Start
