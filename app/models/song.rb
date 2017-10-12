@@ -13,11 +13,14 @@ class Song < ApplicationRecord
         file_name = "#{id}.ogg"
         @youtube_dl_path = "public/uploads/tmp/#{file_name}"
         `mkdir -p public/uploads/tmp && cd public/uploads/tmp && #{YOUTUBE_DL} -x --audio-format vorbis "#{youtube_url}" -o #{file_name}`
-        self.file = File.open @youtube_dl_path
+        File.open(@youtube_dl_path) do |f|
+          self.file = f
+        end
         self.source = @youtube_url
         self.duration ||= infos["duration"]
         self.author ||= infos["uploader"]
         self.tag_list ||= infos["tags"]
+        self.save!
       else
         puts "Invalid youtube_url (#{@youtube_url})"
       end
