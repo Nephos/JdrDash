@@ -1,0 +1,7 @@
+- model_class = Song
+.page-header
+  h1=t '.title', :default => [:'helpers.titles.new', 'Tag cloud %{model}'], :model => model_class.model_name.human.titleize
+
+p
+  - tag_cloud(@tags, %w(css1 css2 css3 css4)) do |tag, css_class|
+    span[class="#{css_class} tag_cloud"] = tag.name

@@ -62,7 +62,7 @@ class SongsController < ApplicationController
   end
 
   def tag_cloud
-    @tags = Post.tag_counts_on(:tags)
+    @tags = Song.tag_counts_on(:tags)
   end
 
   private

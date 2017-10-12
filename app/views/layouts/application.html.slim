@@ -26,29 +26,29 @@ html[lang="en"]
         .navbar-collapse.collapse.navbar-responsive-collapse
           ul.nav.navbar-nav
             li
-              = link_to "Link1", "/path1"
+              = link_to "Dashboard", "#"
             li
-              = link_to "Link2", "/path2"
+              = link_to "Songs list", "/songs"
             li
-              = link_to "Link3", "/path3"
+              = link_to "Songs cloud", "/songs/tag_cloud"
     .container
       .row
         .col-lg-9
           = bootstrap_flash
           = yield
-        .col-lg-3
-          .well.sidebar-nav
-            h3
-              | Sidebar
-            ul.nav.nav-list
-              li.nav-header
-                | Sidebar
-              li
-                = link_to "Link1", "/path1"
-              li
-                = link_to "Link2", "/path2"
-              li
-                = link_to "Link3", "/path3"
+        / .col-lg-3
+        /   .well.sidebar-nav
+        /     h3
+        /       | Sidebar
+        /     ul.nav.nav-list
+        /       li.nav-header
+        /         | Sidebar
+        /       li
+        /         = link_to "Link1", "/path1"
+        /       li
+        /         = link_to "Link2", "/path2"
+        /       li
+        /         = link_to "Link3", "/path3"
       footer
         p
           | © Company 2017
