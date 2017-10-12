@@ -15,6 +15,7 @@ class Song < ApplicationRecord
         `mkdir -p public/uploads/tmp && cd public/uploads/tmp && #{YOUTUBE_DL} -x --audio-format vorbis "#{@youtube_url}" -o #{file_name}`
         self.file = File.open @youtube_dl_path
         self.source = @youtube_url
+        self.title ||= infos["title"]
         self.duration ||= infos["duration"]
         self.author ||= infos["uploader"]
         self.tag_list = infos["tags"] if self.tag_list.empty?

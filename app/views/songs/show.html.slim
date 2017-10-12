@@ -11,6 +11,7 @@ p
   br
   = @song.file
   - if @song.file
+    br
     = audio_tag @song.file, class: "audio-play", autoplay: false, controls: true do
       = link_to "Download song", @song.file.to_s
 p
