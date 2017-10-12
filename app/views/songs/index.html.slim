@@ -1,6 +1,8 @@
 - model_class = Song
 .page-header
   h1=t '.title', :default => model_class.model_name.human.pluralize.titleize
+.text-center
+  = will_paginate @songs, renderer: BootstrapPagination::Rails
 table.table.table-striped
   thead
     tr
