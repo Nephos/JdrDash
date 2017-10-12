@@ -39,17 +39,17 @@
   .form-group
     = f.label :attr_stress, :class => 'control-label col-lg-2'
     .col-lg-10
-      = f.number_field :attr_stress, :class => 'form-control', step: 0.1
+      = f.number_field :attr_stress, :class => 'form-control', step: 1
     = f.error_span(:attr_stress)
   .form-group
     = f.label :attr_epicness, :class => 'control-label col-lg-2'
     .col-lg-10
-      = f.number_field :attr_epicness, :class => 'form-control', step: 0.1
+      = f.number_field :attr_epicness, :class => 'form-control', step: 1
     = f.error_span(:attr_epicness)
   .form-group
     = f.label :attr_happiness, :class => 'control-label col-lg-2'
     .col-lg-10
-      = f.number_field :attr_happiness, :class => 'form-control', step: 0.1
+      = f.number_field :attr_happiness, :class => 'form-control', step: 1
     = f.error_span(:attr_happiness)
   .form-group
     = f.label :tag_list, :class => 'control-label col-lg-2'
