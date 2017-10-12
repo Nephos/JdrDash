@@ -4,7 +4,7 @@
 Install ruby 2.4, ruby gems, and the gem "bundler". You need sqlite3 too.
 
     bundle
-    rake db:create db:migrate
+    rake db:create db:migrate db:seed
 
 ## Start
 
@@ -13,7 +13,7 @@ Install ruby 2.4, ruby gems, and the gem "bundler". You need sqlite3 too.
 ## How it works ?
 You start the server.
 Then you can upload files and set attributes to it.
-Then you can use the dashboard to read music randomnly diven your current preferences (stress, type, etc.)
+Then you can use the dashboard to read music randomly given your current preferences (stress, type, etc.)
 
 ## How to contribute ?
 fork & create a pull request.
@@ -27,11 +27,11 @@ There are some main files/directories to know:
 - app/views: the html page (templated with SLIM);
 - assets: where the CSS and JS is stored. We use coffeescript;
 - db/migrations: where we add new table, fields, etc. to the database;
-- config/routes: where we set which controller method is a action (acessible with http);
+- config/routes: where we set which controller method is an action (accessible with http);
 
 ### Behaviour
 If you want to contribute, please be nice; if someone looks disrespectful, ignore it.
 
 ### Code quality
-Your contributions will be reviewed to improve it and avoid craps, bugs, optimisation issue, etc.
+Your contributions will be reviewed to improve them and avoid craps, bugs, optimization issue, etc.
 Code quality is a requirement.

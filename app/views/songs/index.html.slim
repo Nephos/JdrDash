@@ -5,6 +5,7 @@ table.table.table-striped
   thead
     tr
       th= model_class.human_attribute_name(:id)
+      th= model_class.human_attribute_name(:title)
       th= model_class.human_attribute_name(:file)
       th= model_class.human_attribute_name(:source)
       th= model_class.human_attribute_name(:author)
@@ -19,6 +20,7 @@ table.table.table-striped
     - @songs.each do |song|
       tr
         td= link_to song.id, song_path(song)
+        td= song.title
         td= song.file
         td= song.source
         td= song.author
