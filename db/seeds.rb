@@ -6,4 +6,4 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
-Song.create(title: "Power of Darkness (Instrumental)", file: "https://www.youtube.com/watch?v=HPoMypTAxkY", source: "youtube", author: "Two Steps From Hell", duration: 170, loop: false, attr_stress: 60.0, attr_epicness: 80.0, attr_happiness: 30.0, tag_list: "battle")
+Song.create(title: "Power of Darkness (Instrumental)", file: "sample.wav", source: "youtube", author: "Two Steps From Hell", duration: 170, loop: false, attr_stress: 60, attr_epicness: 80, attr_happiness: 30, tag_list: "battle")
