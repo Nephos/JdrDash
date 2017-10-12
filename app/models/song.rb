@@ -2,6 +2,8 @@ class Song < ApplicationRecord
   mount_uploader :file, SongUploader
   acts_as_taggable
 
+  self.per_page = 10
+
   attr_accessor :youtube_url
 
   after_validation do

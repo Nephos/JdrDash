@@ -1,6 +1,8 @@
 - model_class = Song
 .page-header
   h1=t '.title', :default => model_class.model_name.human.pluralize.titleize
+.text-center
+  = will_paginate @songs, renderer: BootstrapPagination::Rails
 table.table.table-striped
   thead
     tr
@@ -36,5 +38,8 @@ table.table.table-striped
           = link_to t('.edit', :default => t("helpers.links.edit")), edit_song_path(song), :class => 'btn btn-default btn-xs'
           '
           = link_to t('.destroy', :default => t("helpers.links.destroy")), song_path(song), :method => :delete, :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) }, :class => 'btn btn-xs btn-danger'
+
+.text-center
+  = will_paginate @songs, renderer: BootstrapPagination::Rails
 
 = link_to t('.new', :default => t("helpers.links.new")), new_song_path, :class => 'btn btn-primary'
