@@ -1,4 +1,4 @@
-# Jdr Dash (music dashboard)
+# Rpg Dash (music dashboard)
 
 ## Installation
 Install ruby 2.4, ruby gems, and the gem "bundler"
