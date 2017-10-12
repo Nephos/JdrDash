@@ -17,7 +17,7 @@ class Song < ApplicationRecord
         self.source = @youtube_url
         self.duration ||= infos["duration"]
         self.author ||= infos["uploader"]
-        self.tag_list ||= infos["tags"]
+        self.tag_list ||= infos["tags"].join(" ")
       else
         puts "Invalid youtube_url (#{@youtube_url})"
       end
