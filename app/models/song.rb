@@ -4,6 +4,10 @@ class Song < ApplicationRecord
 
   self.per_page = 10
 
+  BLACKLIST = [
+    "des", "dis", "the"
+  ]
+
   attr_accessor :youtube_url
 
   after_validation do
@@ -20,7 +24,8 @@ class Song < ApplicationRecord
         self.title ||= infos["title"]
         self.duration ||= infos["duration"]
         self.author ||= infos["uploader"]
-        self.tag_list = infos["tags"] if self.tag_list.empty?
+        self.tag_list = infos["tags"].map{|tag| ActiveSupport::Inflector.transliterate(tag)}
+          .select{|tag| tag.length > 2 && !BLACKLIST.include?(tag)} if self.tag_list.empty?
       else
         puts "Invalid youtube_url (#{@youtube_url})"
       end
