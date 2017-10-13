@@ -6,7 +6,8 @@ h1
     .col-sm-3
       label.mr-sm-2[for="inlineFormCustomSelect"]
         | Attribute stress
-      = f.number_field :with_attr_stress_gte, :class => 'filterrific-periodically-observed form-control', step: 5
+      = f.number_field :with_attr_stress_gte, :class => 'filterrific-periodically-observed form-control span2 slider', step: 5
+      /, "data-slider-min": 0, "data-slider-max": 100, "data-slider-step": 5, "data-slider-value": "0", "data-slider-orientation": "vertical", "data-slider-selection": "after", "data-slider-tooltip": "hide"
     .col-sm-3
       label.mr-sm-2[for="inlineFormCustomSelect"]
         | Attribute epicness

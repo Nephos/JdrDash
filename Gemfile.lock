@@ -53,6 +53,8 @@ GEM
     arel (8.0.0)
     bcrypt (3.1.11)
     bindex (0.5.0)
+    bootstrap-slider-rails (9.8.0)
+      railties (>= 3.2, < 6.0)
     builder (3.2.3)
     byebug (9.1.0)
     capybara (2.15.4)
@@ -247,6 +249,7 @@ PLATFORMS
 DEPENDENCIES
   acts-as-taggable-on (~> 4.0)
   apipie-rails
+  bootstrap-slider-rails
   byebug
   capybara (~> 2.13)
   carrierwave (~> 1.0)
