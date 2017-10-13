@@ -84,3 +84,5 @@ gem 'carrierwave', '~> 1.0'
 
 ## Filter / Sort
 gem 'filterrific'
+
+gem 'jquery-rails'
