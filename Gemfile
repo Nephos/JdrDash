@@ -79,5 +79,8 @@ gem 'acts-as-taggable-on', '~> 4.0'
 ## API
 gem 'apipie-rails'
 
-# Upload
+## Upload
 gem 'carrierwave', '~> 1.0'
+
+## Filter / Sort
+gem 'filterrific'
