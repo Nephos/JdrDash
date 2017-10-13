@@ -16,7 +16,7 @@ html[lang="en"]
     = javascript_include_tag "application"
   body
     .navbar.navbar-default.navbar-static-top
-      .container
+      .container-fluid
         button.navbar-toggle[type="button" data-toggle="collapse" data-target=".navbar-responsive-collapse"]
           span.icon-bar
           span.icon-bar
@@ -31,9 +31,9 @@ html[lang="en"]
               = link_to "Songs list", songs_url
             li
               = link_to "Songs cloud", songs_tag_cloud_url
-    .container
+    .container-fluid
       .row
-        .col-lg-9
+        .col-lg-12
           = bootstrap_flash
           = yield
         / .col-lg-3
