@@ -34,13 +34,21 @@ class Song < ApplicationRecord
   filterrific(
     available_filters: [
       :with_attr_stress_gte,
-      #:with_attr_epicness_gte,
-      #:with_attr_happiness_gte,
+      :with_attr_epicness_gte,
+      :with_attr_happiness_gte,
     ]
   )
 
   scope :with_attr_stress_gte, lambda { |ref|
     where("attr_stress >= ?", ref)
+  }
+
+  scope :with_attr_epicness_gte, lambda { |ref|
+    where("attr_epicness >= ?", ref)
+  }
+
+  scope :with_attr_happiness_gte, lambda { |ref|
+    where("attr_happiness >= ?", ref)
   }
 
   # def self.options_for_sorted_by

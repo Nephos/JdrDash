@@ -1,17 +1,21 @@
 h1
-  | Songs
-- #
-- #  Filterrific adds the `form_for_filterrific` view helper:
-- #  * adds dom id 'filterrific_filter'
-- #  * applies javascript behaviors:
-- #      * AJAX form submission on change
-- #      * AJAX spinner while AJAX request is being processed
-- #  * sets form_for options like :url, :method and input name prefix
+  | Dashboard
+
 = form_for_filterrific @filterrific, html: {class: "form form-horizontal song"} do |f|
-  .form-group
-    | Attribute stress
-    = f.number_field :with_attr_stress_gte, :class => 'filterrific-periodically-observed control-label col-lg-2'
-    = link_to 'Reset filters', reset_filterrific_url, :class => 'btn btn-default'
-  - # add an automated spinner to your form when the list is refreshed
+  .form-row.align-items-center
+    .col-sm-3
+      label.mr-sm-2[for="inlineFormCustomSelect"]
+        | Attribute stress
+      = f.number_field :with_attr_stress_gte, :class => 'filterrific-periodically-observed form-control', step: 5
+    .col-sm-3
+      label.mr-sm-2[for="inlineFormCustomSelect"]
+        | Attribute epicness
+      = f.number_field :with_attr_epicness_gte, :class => 'filterrific-periodically-observed form-control', step: 5
+    .col-sm-3
+      label.mr-sm-2[for="inlineFormCustomSelect"]
+        | Attribute happiness
+      = f.number_field :with_attr_happiness_gte, :class => 'filterrific-periodically-observed form-control', step: 5
+    .col-sm-3
+      = link_to 'Reset filters', reset_filterrific_url, :class => 'btn btn-default btn-sm'
   = render_filterrific_spinner
 = render(partial: 'dashboard/list', locals: { songs: @songs })
