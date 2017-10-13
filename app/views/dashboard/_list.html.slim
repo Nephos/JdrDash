@@ -1,12 +1,15 @@
 #filterrific_results
   /div = page_entries_info songs
-  table
-    tr
-      th Title
-      th File
-    - songs.each do |song|
+  table.table.table-striped
+    thead
       tr
-        td = link_to song.title, song_path(song)
-        td = audio_tag song.file
+        th Title
+        th File
+    tbody
+      - songs.each do |song|
+        tr
+          td = link_to song.title, song_path(song)
+          td = audio_tag song.file, class: "audio-play", autoplay: false, controls: true do
+            = link_to "Download song", song.file.to_s
 
 div = will_paginate songs
