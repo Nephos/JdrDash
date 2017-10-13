@@ -26,11 +26,11 @@ html[lang="en"]
         .navbar-collapse.collapse.navbar-responsive-collapse
           ul.nav.navbar-nav
             li
-              = link_to "Dashboard", "#"
+              = link_to "Dashboard", dashboard_path
             li
-              = link_to "Songs list", "/songs"
+              = link_to "Songs list", songs_url
             li
-              = link_to "Songs cloud", "/songs/tag_cloud"
+              = link_to "Songs cloud", songs_tag_cloud_url
     .container
       .row
         .col-lg-9
