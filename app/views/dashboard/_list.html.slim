@@ -1,0 +1,12 @@
+#filterrific_results
+  /div = page_entries_info songs
+  table
+    tr
+      th Title
+      th File
+    - songs.each do |song|
+      tr
+        td = link_to song.title, song_path(song)
+        td = audio_tag song.file
+
+div = will_paginate songs

@@ -30,4 +30,22 @@ class Song < ApplicationRecord
   after_save do
     File.delete @youtube_dl_path if @youtube_dl_path
   end
+
+  filterrific(
+    available_filters: [
+      :with_attr_stress_gte,
+      #:with_attr_epicness_gte,
+      #:with_attr_happiness_gte,
+    ]
+  )
+
+  scope :with_attr_stress_gte, lambda { |ref|
+    where("attr_stress >= ?", ref)
+  }
+
+  # def self.options_for_sorted_by
+  #   [
+  #     ['Attribut Stress (0-100)', 'attr_stress_asc']
+  #   ]
+  # end
 end
