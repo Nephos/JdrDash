@@ -18,9 +18,9 @@ ActiveRecord::Schema.define(version: 20171012103239) do
     t.string "author"
     t.integer "duration"
     t.boolean "loop"
-    t.integer "attr_stress"
-    t.integer "attr_epicness"
-    t.integer "attr_happiness"
+    t.integer "attr_stress", default: 0
+    t.integer "attr_epicness", default: 0
+    t.integer "attr_happiness", default: 0
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "title"
