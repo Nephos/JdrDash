@@ -1,39 +1,50 @@
-# audio = document.getElementById('player')
-# audio.addEventListener 'ended', ->
-#   audio.src = 'nextAudio.mp3'
-#   audio.play()
-#   return
+# List the current musics of the playlist
+# TODO: argument .player
 getMusicUrls = () ->
-  $(".ap-playlist audio") #.map (i, e) -> e.src
+  musics = $(".ap-playlist audio")
+  return musics
 
+# Stop the current audio track
 stopMusic = (player) ->
-  musics = getMusicUrls()
-  if musics.length > player.current_music_id
-    current_music = musics[player.current_music_id]
-    current_music.pause()
+  player.musics.each (i, audio) ->
+    audio.pause()
+  # if player.musics.length > player.current_music_id
+  #   current_music = player.musics[player.current_music_id]
+  #   current_music.pause()
 
+# Start the audio track pointed by current_music_id
 startMusic = (player) ->
-  musics = getMusicUrls()
-  if player.current_music_id < 0
-    player.current_music_id += musics.length
+  if player.musics.length == 0
+    return
+  # Set valid a id
+  player.current_music_id = (player.current_music_id + player.musics.length) % player.musics.length
   # Start from current
-  if musics.length > player.current_music_id
-    current_music = musics[player.current_music_id]
-    current_music.play()
-    # Auto next
-    current_music.addEventListener 'ended', (event) ->
-      player.current_music_id += 1
-      startMusic(player)
-  # Restart from 0 (loop)
-  else if musics.length > 0
-    player.current_music_id = 0
-    startMusic(player)
+  if player.musics.length > player.current_music_id
+    player.musics[player.current_music_id].play()
+
+setupMusicsNextAudio = (event) ->
+  audio = event.target
+  stopMusic(audio.player)
+  audio.player.current_music_id = audio.index + 1
+  startMusic(audio.player)
+
+# Set the audio events of the current playlsit
+setupMusics = (player) ->
+  player.musics.each (i, audio) ->
+    audio.index = i
+    audio.player = player
+    audio.removeEventListener 'ended', setupMusicsNextAudio
+    audio.addEventListener 'ended', setupMusicsNextAudio
 
 $(document).on 'turbolinks:load', ->
-  #startMusic(player)
   player = $(".audioplayer")[0]
+  player.musics = getMusicUrls()
   player.current_music_id = 0
+  setupMusics(player)
+
+  # TODO: bind event CHANGE ot update the musics
   $("button.ap-play").on 'click', ->
+    setupMusics(player)
     startMusic(player)
   $("button.ap-pause").on 'click', ->
     stopMusic(player)
