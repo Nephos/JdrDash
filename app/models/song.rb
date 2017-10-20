@@ -49,9 +49,6 @@ class Song < ApplicationRecord
   # tagged_with(["awesome", "cool"], :any => true)
 
   scope :with_tags, lambda { |tags|
-    puts "\n"*5
-    puts "Tags: #{tags.inspect}"
-    puts "\n"*5
     tagged_with(tags)
   }
 
