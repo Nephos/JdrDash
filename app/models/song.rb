@@ -38,11 +38,22 @@ class Song < ApplicationRecord
 
   filterrific(
     available_filters: [
+      :with_tags,
       :with_attr_stress_gte,
       :with_attr_epicness_gte,
       :with_attr_happiness_gte,
     ]
   )
+
+  # tagged_with(["awesome", "cool"], :match_all => true)
+  # tagged_with(["awesome", "cool"], :any => true)
+
+  scope :with_tags, lambda { |tags|
+    puts "\n"*5
+    puts "Tags: #{tags.inspect}"
+    puts "\n"*5
+    tagged_with(tags)
+  }
 
   scope :with_attr_stress_gte, lambda { |ref|
     where("attr_stress >= ?", ref)
