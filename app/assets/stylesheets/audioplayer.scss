@@ -1,0 +1,14 @@
+.audioplayer {
+  .ap-player {
+    margin: 12px;
+    padding: 5px;
+    background: rgb(127, 127, 127);
+  }
+
+  .ap-controls {
+    margin-left: 10px;
+    margin-right: 10px;
+  }
+
+  .ap-current-time:after { content: " / "; }
+}
